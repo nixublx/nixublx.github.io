@@ -304,11 +304,10 @@ var digisparkMap = {
       key = (keys.length > 0 ? keys[0] : (commands.length > 0 ? commands[0] : 0));
       modifier = modifiers.join('|');
       keyparams = (modifier.length>0 ? key + ',' + modifier : key);
-      if (modifiers.length>0) {
+      if (modifiers.length>0)
         return '  DigiKeyboard.sendKeyStroke(' + keyparams + ');\n';
-      } else
+      else
         return '  DigiKeyboard.sendKeyStroke(' + key + ');\n';
-      //return '  DigiKeyboard.sendKeyStroke('+ keyparams + ');\n  DigiKeyboard.update();\n';
     }
 };
 
@@ -432,8 +431,8 @@ class Dckuinojs {
           var textString = wordArray.join(' ');
           parsedOut = '';
 
-          // Create 256-byte chunks
-          var chunks = textString.match(/[\s\S]{1,256}/g) || [];
+          // Create 255-byte chunks
+          var chunks = textString.match(/[\s\S]{1,255}/g) || [];
           for (var chunk in chunks) {
 
             // Replace all '"' by '\"' and all '\' by '\\'
